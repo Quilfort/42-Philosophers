@@ -6,7 +6,7 @@
 /*   By: qfrederi <qfrederi@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/22 08:53:04 by qfrederi      #+#    #+#                 */
-/*   Updated: 2022/11/22 09:06:23 by qfrederi      ########   odam.nl         */
+/*   Updated: 2022/11/22 11:06:46 by qfrederi      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,6 @@
 # define PHILO_H
 
 # include <stdio.h>
+# include <stdbool.h>
 
 #endif 
