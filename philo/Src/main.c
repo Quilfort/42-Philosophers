@@ -6,49 +6,45 @@
 /*   By: qfrederi <qfrederi@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/22 08:58:06 by qfrederi      #+#    #+#                 */
-/*   Updated: 2022/11/22 11:19:10 by qfrederi      ########   odam.nl         */
+/*   Updated: 2022/11/23 08:42:16 by qfrederi      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-static int	only_digit(char *string)
+static int	check_arguments(int argc, char *argv[])
 {
 	int	i;
+	int	k;
 
-	i = 0;
-
-	while (string[i] != '\0')
+	i = 1;
+	if (argc < 5 || argc > 6)
 	{
-		printf("this is string[i] = %c\n", string[i]);
-		if ((string[i] >= '0') && (string[i] <= '9'))
-			i++;
-		else
-			return (false);
+		printf("Invalid number of arguments\n");
+		return (false);
+	}
+	while (argv[i] != NULL)
+	{
+		k = 0;
+		while (argv[i][k] != '\0')
+		{
+			if ((argv[i][k] >= '0') && (argv[i][k] <= '9'))
+				k++;
+			else
+			{
+				printf("Numberic error\n");
+				return (false);
+			}
+		}
+		i++;
 	}
 	return (true);
 }
 
 int	main(int argc, char *argv[])
 {
-	int	i;
-
-	i = 1;
-
-	if (argc < 5 || argc > 6)
-	{
-		printf("Check your arguments\n");
+	if (check_arguments(argc, argv) == false)
 		return (0);
-	}
-	while (argv[i] != NULL)
-	{
-		if (only_digit(argv[i]) == false)
-		{
-			printf("There is a character\n");
-			return (0);
-		}
-		i++;
-	}
 	printf("%s\n", argv[1]);
 	return (0);
 }
