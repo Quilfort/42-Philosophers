@@ -6,11 +6,35 @@
 /*   By: qfrederi <qfrederi@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/23 11:39:51 by qfrederi      #+#    #+#                 */
-/*   Updated: 2022/11/23 12:29:46 by qfrederi      ########   odam.nl         */
+/*   Updated: 2022/11/23 20:23:18 by quilfort      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
+
+void init_philo(t_vars *vars, t_philo *philo)
+{
+	int	i;
+
+	i = 0;
+	vars->mutex = malloc(sizeof(pthread_mutex_t) * (vars->number_of_philosphers +1));
+	if(!vars->mutex)
+	{
+		free(philo);
+		philo = NULL;
+		return ;
+	}
+	while (i < vars->number_of_philosphers)
+	{
+		philo->id = i + 1;
+		philo->last_meal = time_of_day();
+		philo_mutex_init(vars, &vars->mutex[i]);
+		i++;
+	}
+	printf("This is %d\n", i);
+	philo->servings = 0;
+	philo_mutex_init(vars, &vars->mutex[i]);
+}
 
 int	parse_arguments(int argc, char *argv[], t_vars *vars)
 {

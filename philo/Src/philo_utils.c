@@ -6,11 +6,27 @@
 /*   By: qfrederi <qfrederi@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/23 08:51:42 by qfrederi      #+#    #+#                 */
-/*   Updated: 2022/11/23 08:55:16 by qfrederi      ########   odam.nl         */
+/*   Updated: 2022/11/23 20:25:50 by quilfort      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
+
+void	error_message(t_vars *vars, char *message)
+{
+	vars->active = false;
+	write(STDERR_FILENO, "Error: ", 7);
+	write(STDERR_FILENO, message, ft_strlen(message));
+	exit(EXIT_FAILURE);
+}
+
+unsigned long	time_of_day(void)
+{
+	struct timeval	current_time;
+
+	gettimeofday(&current_time, NULL);
+	return ((current_time.tv_sec * 1000) + (current_time.tv_usec / 1000));
+}
 
 int	ft_atoi(const char *str)
 {
@@ -36,4 +52,14 @@ int	ft_atoi(const char *str)
 		i++;
 	}
 	return (num * negative);
+}
+
+size_t	ft_strlen(char *string)
+{
+	size_t	i;
+
+	i = 0;
+	while (string[i] != '\0')
+		i++;
+	return (i);
 }

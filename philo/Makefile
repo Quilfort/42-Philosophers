@@ -4,7 +4,8 @@ FLAGS = -Wall -Wextra -Werror -g -pthread
 INC = -I ./Includes
 SRC =	./Src/main.c \
 		./Src/parsing.c \
-		./Src/philo_utils.c
+		./Src/philo_utils.c \
+		./Src/pthread_protect.c
 OBJ = $(SRC:%.c=%.o)
 
 all: $(NAME)
