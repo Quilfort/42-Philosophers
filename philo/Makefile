@@ -5,6 +5,7 @@ INC = -I ./Includes
 SRC =	./Src/main.c \
 		./Src/parsing.c \
 		./Src/philo_utils.c \
+		./Src/philosopher.c \
 		./Src/pthread_protect.c
 OBJ = $(SRC:%.c=%.o)
 
