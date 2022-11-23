@@ -6,7 +6,7 @@
 /*   By: qfrederi <qfrederi@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/22 08:53:04 by qfrederi      #+#    #+#                 */
-/*   Updated: 2022/11/23 08:56:15 by qfrederi      ########   odam.nl         */
+/*   Updated: 2022/11/23 12:03:01 by qfrederi      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,20 @@
 # include <limits.h>
 # include <sys/time.h>
 
-typedef int				t_int32;
-typedef unsigned int	t_uint32;
-typedef long			t_int64;
-typedef unsigned long	t_uint64;
-
 # define PHILO_H
+
+typedef struct s_vars
+{
+	int	number_of_philosphers;
+	int	time_to_die;
+	int	time_to_eat;
+	int	time_to_sleep;
+	int	amount_of_servings;
+}	t_vars;
+
+	// parsing.c
+int		check_arguments(int argc, char *argv[]);
+int		parse_arguments(int argc, char *argv[], t_vars *vars);
 
 	// philo_utils
 int		ft_atoi(const char *str);

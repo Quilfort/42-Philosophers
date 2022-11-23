@@ -2,7 +2,9 @@ NAME = philo
 CC = gcc
 FLAGS = -Wall -Wextra -Werror 
 INC = -I ./Includes
-SRC = ./Src/main.c 
+SRC =	./Src/main.c \
+		./Src/parsing.c \
+		./Src/philo_utils.c
 OBJ = $(SRC:%.c=%.o)
 
 all: $(NAME)
