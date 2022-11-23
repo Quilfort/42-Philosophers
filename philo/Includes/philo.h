@@ -6,7 +6,7 @@
 /*   By: qfrederi <qfrederi@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/22 08:53:04 by qfrederi      #+#    #+#                 */
-/*   Updated: 2022/11/23 12:03:01 by qfrederi      ########   odam.nl         */
+/*   Updated: 2022/11/23 17:31:07 by qfrederi      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,14 +22,34 @@
 
 # define PHILO_H
 
+typedef struct s_philo
+{
+	int			id;
+	int			servings;
+	long		last_meal;
+	void		*right_fork;
+	void		*left_fork;
+	pthread_t	thread;
+
+}	t_philo;
+
 typedef struct s_vars
 {
-	int	number_of_philosphers;
-	int	time_to_die;
-	int	time_to_eat;
-	int	time_to_sleep;
-	int	amount_of_servings;
+	int				active;
+	int				number_of_philosphers;
+	int				time_to_die;
+	int				time_to_eat;
+	int				time_to_sleep;
+	int				amount_of_servings;
+	pthread_mutex_t	*mutex;
+	t_philo			*philo;
 }	t_vars;
+
+typedef struct s_philo_data
+{
+	t_vars		*vars;
+	t_philo		*philo;
+}	t_philo_data;
 
 	// parsing.c
 int		check_arguments(int argc, char *argv[]);
