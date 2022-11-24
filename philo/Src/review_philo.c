@@ -6,7 +6,7 @@
 /*   By: qfrederi <qfrederi@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/24 13:06:54 by qfrederi      #+#    #+#                 */
-/*   Updated: 2022/11/24 13:14:54 by qfrederi      ########   odam.nl         */
+/*   Updated: 2022/11/24 14:29:52 by qfrederi      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,17 @@ static int	is_philo_served(t_vars *vars)
 	}
 	vars->active = false;
 	return (1);
+}
+
+static int	is_philo_death(t_vars *vars)
+{
+	int		i;
+	long	diff;
+	long	current;
+
+	i = 0;
+	current = time_of_day();
+
 }
 
 void	review_preformance(t_vars *vars)
