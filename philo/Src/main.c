@@ -6,7 +6,7 @@
 /*   By: qfrederi <qfrederi@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/22 08:58:06 by qfrederi      #+#    #+#                 */
-/*   Updated: 2022/11/23 20:48:20 by quilfort      ########   odam.nl         */
+/*   Updated: 2022/11/24 10:38:06 by qfrederi      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@ int	main(int argc, char *argv[])
 	vars->active = true;
 	init_philo(vars, philo);
 	place_philo(vars, philo);
+	//create_threads(vars, philo);
 	printf("This is vars philo = %d\n", vars->number_of_philosphers);
-	printf("This is vars time to eat = %d\n", vars->time_to_eat);
 	printf("This is vars last meal = %ld\n", philo->last_meal);
 	return (0);
 }

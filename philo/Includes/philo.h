@@ -6,7 +6,7 @@
 /*   By: qfrederi <qfrederi@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/22 08:53:04 by qfrederi      #+#    #+#                 */
-/*   Updated: 2022/11/24 09:46:32 by qfrederi      ########   odam.nl         */
+/*   Updated: 2022/11/24 10:43:24 by qfrederi      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,13 +60,21 @@ void			init_philo(t_vars *vars, t_philo *philo);
 int				ft_atoi(const char *str);
 unsigned long	time_of_day(void);
 size_t			ft_strlen(char *string);
-void			error_message(t_vars *vars, char *message);
 
 	//philosopher
 void			*place_philo(t_vars *vars, t_philo *philo);
 void			*add_philo_to_thread(void *arg);
 
+	//print_to_term
+void			error_message(t_vars *vars, char *message);
+void			print_messsage(t_vars *vars, t_philo *philo, char *string);
+
 	//pthread_protect
 void			philo_mutex_init(t_vars *vars, pthread_mutex_t *mutex);
+void			philo_mutex_lock(t_vars *vars, pthread_mutex_t *mutex);
+void			philo_mutex_unlock(t_vars *vars, pthread_mutex_t *mutex);
+
+	//use_threads
+void			create_threads(t_vars *vars, t_philo *philo);
 
 #endif

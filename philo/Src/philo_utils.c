@@ -6,19 +6,11 @@
 /*   By: qfrederi <qfrederi@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/23 08:51:42 by qfrederi      #+#    #+#                 */
-/*   Updated: 2022/11/24 08:44:30 by qfrederi      ########   odam.nl         */
+/*   Updated: 2022/11/24 10:17:32 by qfrederi      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
-
-void	error_message(t_vars *vars, char *message)
-{
-	vars->active = false;
-	write(STDERR_FILENO, "Error: ", 7);
-	write(STDERR_FILENO, message, ft_strlen(message));
-	exit(EXIT_FAILURE);
-}
 
 unsigned long	time_of_day(void)
 {
