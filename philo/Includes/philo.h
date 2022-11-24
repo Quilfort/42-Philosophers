@@ -6,7 +6,7 @@
 /*   By: qfrederi <qfrederi@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/22 08:53:04 by qfrederi      #+#    #+#                 */
-/*   Updated: 2022/11/24 12:50:05 by qfrederi      ########   odam.nl         */
+/*   Updated: 2022/11/24 13:10:25 by qfrederi      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,9 @@ void			philo_mutex_lock(t_vars *vars, pthread_mutex_t *mutex);
 void			philo_mutex_unlock(t_vars *vars, pthread_mutex_t *mutex);
 void			philo_pthread_join(pthread_t thread);
 void			philo_mutex_destroy(pthread_mutex_t *mutex);
+
+	//review_philo.c
+void			review_preformance(t_vars *vars);
 
 	//use_threads
 void			create_threads(t_vars *vars);

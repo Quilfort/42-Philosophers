@@ -8,6 +8,7 @@ SRC =	./Src/main.c \
 		./Src/philosopher.c \
 		./Src/print_to_term.c \
 		./Src/pthread_protect.c \
+		./Src/review_philo.c \
 		./Src/use_threads.c
 OBJ = $(SRC:%.c=%.o)
 
