@@ -6,7 +6,7 @@
 /*   By: qfrederi <qfrederi@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/22 08:53:04 by qfrederi      #+#    #+#                 */
-/*   Updated: 2022/11/24 12:24:54 by qfrederi      ########   odam.nl         */
+/*   Updated: 2022/11/24 12:50:05 by qfrederi      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ typedef struct s_philo_data
 	// parsing.c
 int				check_arguments(int argc, char *argv[]);
 int				parse_arguments(int argc, char *argv[], t_vars *vars);
-void			init_philo(t_vars *vars, t_philo *philo);
+void			init_philo(t_vars *vars);
 
 	// philo_utils
 int				ft_atoi(const char *str);
@@ -63,7 +63,7 @@ size_t			ft_strlen(char *string);
 void			philo_sleep(unsigned long millisecond);
 
 	//philosopher
-void			*place_philo(t_vars *vars, t_philo *philo);
+void			*place_philo(t_vars *vars);
 void			*add_philo_to_thread(void *arg);
 
 	//print_to_term
@@ -78,8 +78,8 @@ void			philo_pthread_join(pthread_t thread);
 void			philo_mutex_destroy(pthread_mutex_t *mutex);
 
 	//use_threads
-void			create_threads(t_vars *vars, t_philo *philo);
-void			wait_join_threads(t_vars *vars, t_philo *philo);
-void			clean_threads(t_vars *vars, t_philo *philo);
+void			create_threads(t_vars *vars);
+void			wait_join_threads(t_vars *vars);
+void			clean_threads(t_vars *vars);
 
 #endif

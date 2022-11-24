@@ -6,13 +6,13 @@
 /*   By: qfrederi <qfrederi@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/24 09:11:30 by qfrederi      #+#    #+#                 */
-/*   Updated: 2022/11/24 11:57:28 by qfrederi      ########   odam.nl         */
+/*   Updated: 2022/11/24 12:49:52 by qfrederi      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-void	create_threads(t_vars *vars, t_philo *philo)
+void	create_threads(t_vars *vars)
 {
 	int				i;
 	t_philo_data	*arg;
@@ -24,26 +24,26 @@ void	create_threads(t_vars *vars, t_philo *philo)
 		if (!arg)
 			return ;
 		arg->vars = vars;
-		arg->philo = philo;
-		pthread_create(&philo[i].thread, NULL, add_philo_to_thread, \
+		arg->philo = &vars->philo[i];
+		pthread_create(&vars->philo[i].thread, NULL, add_philo_to_thread, \
 						(void *) arg);
 		i++;
 	}
 }
 
-void	wait_join_threads(t_vars *vars, t_philo *philo)
+void	wait_join_threads(t_vars *vars)
 {
 	int	i;
 
 	i = 0;
-	while (i < vars->number_of_philosphers && philo)
+	while (i < vars->number_of_philosphers && vars->philo)
 	{
-		philo_pthread_join(philo->thread);
+		philo_pthread_join(vars->philo[i].thread);
 		i++;
 	}
 }
 
-void	clean_threads(t_vars *vars, t_philo *philo)
+void	clean_threads(t_vars *vars)
 {
 	int	i;
 
@@ -55,5 +55,5 @@ void	clean_threads(t_vars *vars, t_philo *philo)
 	}
 	philo_mutex_destroy(vars->mutex);
 	free(vars->mutex);
-	free(philo);
+	free(vars->philo);
 }
