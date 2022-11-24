@@ -6,7 +6,8 @@ SRC =	./Src/main.c \
 		./Src/parsing.c \
 		./Src/philo_utils.c \
 		./Src/philosopher.c \
-		./Src/pthread_protect.c
+		./Src/pthread_protect.c \
+		./Src/use_threads.c
 OBJ = $(SRC:%.c=%.o)
 
 all: $(NAME)

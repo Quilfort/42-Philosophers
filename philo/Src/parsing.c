@@ -6,19 +6,20 @@
 /*   By: qfrederi <qfrederi@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/23 11:39:51 by qfrederi      #+#    #+#                 */
-/*   Updated: 2022/11/23 20:23:18 by quilfort      ########   odam.nl         */
+/*   Updated: 2022/11/24 08:43:48 by qfrederi      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-void init_philo(t_vars *vars, t_philo *philo)
+void	init_philo(t_vars *vars, t_philo *philo)
 {
 	int	i;
 
 	i = 0;
-	vars->mutex = malloc(sizeof(pthread_mutex_t) * (vars->number_of_philosphers +1));
-	if(!vars->mutex)
+	vars->mutex = malloc(sizeof(pthread_mutex_t) * \
+		(vars->number_of_philosphers +1));
+	if (!vars->mutex)
 	{
 		free(philo);
 		philo = NULL;
