@@ -6,7 +6,7 @@
 /*   By: qfrederi <qfrederi@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/24 08:42:19 by qfrederi      #+#    #+#                 */
-/*   Updated: 2022/11/24 10:24:16 by qfrederi      ########   odam.nl         */
+/*   Updated: 2022/11/24 11:58:55 by qfrederi      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,4 +34,20 @@ void	philo_mutex_unlock(t_vars *vars, pthread_mutex_t *mutex)
 		return ;
 	if (pthread_mutex_unlock(mutex) != 0)
 		error_message(vars, "Incapable to unlock Mutex");
+}
+
+void	philo_pthread_join(pthread_t thread)
+{
+	if (!thread)
+		return ;
+	if (pthread_join(thread, NULL) != 0)
+		exit(EXIT_FAILURE);
+}
+
+void	philo_mutex_destroy(pthread_mutex_t *mutex)
+{
+	if (!mutex)
+		return ;
+	if (pthread_mutex_destroy(mutex) != 0)
+		exit(EXIT_FAILURE);
 }

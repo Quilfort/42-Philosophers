@@ -6,7 +6,7 @@
 /*   By: qfrederi <qfrederi@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/23 11:39:51 by qfrederi      #+#    #+#                 */
-/*   Updated: 2022/11/24 08:43:48 by qfrederi      ########   odam.nl         */
+/*   Updated: 2022/11/24 12:05:37 by qfrederi      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@ void	init_philo(t_vars *vars, t_philo *philo)
 		philo_mutex_init(vars, &vars->mutex[i]);
 		i++;
 	}
-	printf("This is %d\n", i);
 	philo->servings = 0;
 	philo_mutex_init(vars, &vars->mutex[i]);
 }
@@ -45,9 +44,9 @@ int	parse_arguments(int argc, char *argv[], t_vars *vars)
 		printf("Must use at least 1 philosophers\n");
 		return (false);
 	}
-	vars->time_to_die = ft_atoi(argv[2]) * 1000;
-	vars->time_to_eat = ft_atoi(argv[3]) * 1000;
-	vars->time_to_sleep = ft_atoi(argv[4]) * 1000;
+	vars->time_to_die = ft_atoi(argv[2]);
+	vars->time_to_eat = ft_atoi(argv[3]);
+	vars->time_to_sleep = ft_atoi(argv[4]);
 	vars->amount_of_servings = -1;
 	if (argc > 5)
 		vars->amount_of_servings = ft_atoi(argv[5]);

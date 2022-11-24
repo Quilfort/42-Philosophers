@@ -6,7 +6,7 @@
 /*   By: qfrederi <qfrederi@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/22 08:53:04 by qfrederi      #+#    #+#                 */
-/*   Updated: 2022/11/24 10:43:24 by qfrederi      ########   odam.nl         */
+/*   Updated: 2022/11/24 12:03:00 by qfrederi      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,15 +66,19 @@ void			*place_philo(t_vars *vars, t_philo *philo);
 void			*add_philo_to_thread(void *arg);
 
 	//print_to_term
-void			error_message(t_vars *vars, char *message);
-void			print_messsage(t_vars *vars, t_philo *philo, char *string);
+int				error_message(t_vars *vars, char *message);
+void			print_message(t_vars *vars, t_philo *philo, char *string);
 
 	//pthread_protect
 void			philo_mutex_init(t_vars *vars, pthread_mutex_t *mutex);
 void			philo_mutex_lock(t_vars *vars, pthread_mutex_t *mutex);
 void			philo_mutex_unlock(t_vars *vars, pthread_mutex_t *mutex);
+void			philo_pthread_join(pthread_t thread);
+void			philo_mutex_destroy(pthread_mutex_t *mutex);
 
 	//use_threads
 void			create_threads(t_vars *vars, t_philo *philo);
+void			wait_join_threads(t_vars *vars, t_philo *philo);
+void			clean_threads(t_vars *vars, t_philo *philo);
 
 #endif
