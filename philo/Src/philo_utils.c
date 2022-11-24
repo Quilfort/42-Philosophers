@@ -6,7 +6,7 @@
 /*   By: qfrederi <qfrederi@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/23 08:51:42 by qfrederi      #+#    #+#                 */
-/*   Updated: 2022/11/24 10:17:32 by qfrederi      ########   odam.nl         */
+/*   Updated: 2022/11/24 12:22:51 by qfrederi      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,15 @@ unsigned long	time_of_day(void)
 
 	gettimeofday(&current_time, NULL);
 	return ((current_time.tv_sec * 1000) + (current_time.tv_usec / 1000));
+}
+
+void	philo_sleep(unsigned long millisecond)
+{
+	unsigned long	current;
+
+	current = time_of_day();
+	while (time_of_day() - current < millisecond)
+		usleep(100);
 }
 
 int	ft_atoi(const char *str)

@@ -6,7 +6,7 @@
 /*   By: qfrederi <qfrederi@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/22 08:53:04 by qfrederi      #+#    #+#                 */
-/*   Updated: 2022/11/24 12:03:00 by qfrederi      ########   odam.nl         */
+/*   Updated: 2022/11/24 12:24:54 by qfrederi      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,7 @@ void			init_philo(t_vars *vars, t_philo *philo);
 int				ft_atoi(const char *str);
 unsigned long	time_of_day(void);
 size_t			ft_strlen(char *string);
+void			philo_sleep(unsigned long millisecond);
 
 	//philosopher
 void			*place_philo(t_vars *vars, t_philo *philo);
