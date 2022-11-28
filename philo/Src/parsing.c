@@ -6,7 +6,7 @@
 /*   By: qfrederi <qfrederi@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/23 11:39:51 by qfrederi      #+#    #+#                 */
-/*   Updated: 2022/11/28 11:34:35 by qfrederi      ########   odam.nl         */
+/*   Updated: 2022/11/28 13:43:39 by qfrederi      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	init_philo(t_vars *vars)
 	if (!vars->philo)
 		return ;
 	vars->mutex = malloc(sizeof(pthread_mutex_t) * \
-		(vars->number_of_philosphers +1));
+		(vars->number_of_philosphers + 1));
 	if (!vars->mutex)
 	{
 		free(vars->philo);
@@ -41,24 +41,24 @@ void	init_philo(t_vars *vars)
 
 int	parse_arguments(int argc, char *argv[], t_vars *vars)
 {
-	vars->number_of_philosphers = ft_atoi(argv[1]);
+	vars->number_of_philosphers = ft_atoi_long(argv[1]);
 	if (vars->number_of_philosphers == 0)
 	{
 		printf("Must use at least 1 philosophers\n");
 		return (false);
 	}
-	vars->time_to_die = ft_atoi(argv[2]);
-	vars->time_to_eat = ft_atoi(argv[3]);
-	vars->time_to_sleep = ft_atoi(argv[4]);
+	vars->time_to_die = ft_atoi_long(argv[2]);
+	vars->time_to_eat = ft_atoi_long(argv[3]);
+	vars->time_to_sleep = ft_atoi_long(argv[4]);
 	vars->amount_of_servings = -1;
 	if (argc > 5)
-		vars->amount_of_servings = ft_atoi(argv[5]);
+		vars->amount_of_servings = ft_atoi_long(argv[5]);
 	return (true);
 }
 
 static int	max_min_int(char *number)
 {
-	if (ft_atoi(number) > INT_MAX)
+	if (ft_atoi_long(number) > INT_MAX)
 	{
 		printf("Number must be lower than Int Max\n");
 		return (false);

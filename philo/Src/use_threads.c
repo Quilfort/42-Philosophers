@@ -6,7 +6,7 @@
 /*   By: qfrederi <qfrederi@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/24 09:11:30 by qfrederi      #+#    #+#                 */
-/*   Updated: 2022/11/24 12:49:52 by qfrederi      ########   odam.nl         */
+/*   Updated: 2022/11/28 12:35:49 by qfrederi      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,4 +56,5 @@ void	clean_threads(t_vars *vars)
 	philo_mutex_destroy(vars->mutex);
 	free(vars->mutex);
 	free(vars->philo);
+	free(vars);
 }
