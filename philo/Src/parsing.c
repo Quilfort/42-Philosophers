@@ -6,7 +6,7 @@
 /*   By: qfrederi <qfrederi@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/23 11:39:51 by qfrederi      #+#    #+#                 */
-/*   Updated: 2022/11/24 12:46:33 by qfrederi      ########   odam.nl         */
+/*   Updated: 2022/11/28 11:34:35 by qfrederi      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,27 +56,46 @@ int	parse_arguments(int argc, char *argv[], t_vars *vars)
 	return (true);
 }
 
+static int	max_min_int(char *number)
+{
+	if (ft_atoi(number) > INT_MAX)
+	{
+		printf("Number must be lower than Int Max\n");
+		return (false);
+	}
+	return (true);
+}
+
+static int	argc_count(int argc)
+{
+	if (argc < 5 || argc > 6)
+	{
+		printf("Invalid number of arguments\n");
+		return (false);
+	}
+	return (true);
+}
+
 int	check_arguments(int argc, char *argv[])
 {
 	int	i;
 	int	k;
 
 	i = 1;
-	if (argc < 5 || argc > 6)
-	{
-		printf("Invalid number of arguments\n");
+	if (argc_count(argc) == false)
 		return (false);
-	}
 	while (argv[i] != NULL)
 	{
 		k = 0;
+		if (max_min_int(argv[i]) == false)
+			return (false);
 		while (argv[i][k] != '\0')
 		{
 			if ((argv[i][k] >= '0') && (argv[i][k] <= '9'))
 				k++;
 			else
 			{
-				printf("Numberic error\n");
+				printf("Numeric error\n");
 				return (false);
 			}
 		}

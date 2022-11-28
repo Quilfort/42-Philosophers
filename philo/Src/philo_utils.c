@@ -6,7 +6,7 @@
 /*   By: qfrederi <qfrederi@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/23 08:51:42 by qfrederi      #+#    #+#                 */
-/*   Updated: 2022/11/24 12:22:51 by qfrederi      ########   odam.nl         */
+/*   Updated: 2022/11/28 11:27:07 by qfrederi      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,11 @@ void	philo_sleep(unsigned long millisecond)
 		usleep(100);
 }
 
-int	ft_atoi(const char *str)
+long	ft_atoi(const char *str)
 {
-	int	negative;
-	int	i;
-	int	num;
+	long	negative;
+	long	i;
+	long	num;
 
 	i = 0;
 	negative = 1;

@@ -6,7 +6,7 @@
 /*   By: qfrederi <qfrederi@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/22 08:58:06 by qfrederi      #+#    #+#                 */
-/*   Updated: 2022/11/24 13:17:37 by qfrederi      ########   odam.nl         */
+/*   Updated: 2022/11/28 11:22:14 by qfrederi      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,11 @@ int	main(int argc, char *argv[])
 		return (0);
 	vars->active = true;
 	vars->philo = NULL;
-	init_philo(vars);
-	place_philo(vars);
-	create_threads(vars);
+	//init_philo(vars);
+	//place_philo(vars);
+	//create_threads(vars);
 	//review_preformance(vars);
-	wait_join_threads(vars);
-	clean_threads(vars);
+	//wait_join_threads(vars);
+	//clean_threads(vars);
 	return (0);
 }

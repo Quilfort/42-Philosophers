@@ -6,7 +6,7 @@
 /*   By: qfrederi <qfrederi@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/24 08:42:29 by qfrederi      #+#    #+#                 */
-/*   Updated: 2022/11/24 12:47:49 by qfrederi      ########   odam.nl         */
+/*   Updated: 2022/11/28 11:11:33 by qfrederi      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,18 +35,18 @@ static void	eating(t_vars *vars, t_philo *philo)
 	if (philo->id % 2)
 	{
 		philo_mutex_lock(vars, (pthread_mutex_t *)philo->right_fork);
-		print_message(vars, philo, "has taken a fork");
+		print_message(vars, philo, "has taken a Right fork");
 		if (vars->number_of_philosphers == 1)
 			return ;
 		philo_mutex_lock(vars, (pthread_mutex_t *)philo->left_fork);
-		print_message(vars, philo, "has taken a fork");
+		print_message(vars, philo, "has taken a Left fork");
 	}
 	else
 	{
 		philo_mutex_lock(vars, (pthread_mutex_t *)philo->left_fork);
-		print_message(vars, philo, "has taken a fork");
+		print_message(vars, philo, "has taken a Left fork");
 		philo_mutex_lock(vars, (pthread_mutex_t *)philo->right_fork);
-		print_message(vars, philo, "has taken a fork");
+		print_message(vars, philo, "has taken a Right fork");
 	}
 	print_message(vars, philo, "is eating");
 	philo->last_meal = time_of_day();

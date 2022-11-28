@@ -6,7 +6,7 @@
 /*   By: qfrederi <qfrederi@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/22 08:53:04 by qfrederi      #+#    #+#                 */
-/*   Updated: 2022/11/24 13:10:25 by qfrederi      ########   odam.nl         */
+/*   Updated: 2022/11/28 11:27:26 by qfrederi      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ int				parse_arguments(int argc, char *argv[], t_vars *vars);
 void			init_philo(t_vars *vars);
 
 	// philo_utils
-int				ft_atoi(const char *str);
+long			ft_atoi(const char *str);
 unsigned long	time_of_day(void);
 size_t			ft_strlen(char *string);
 void			philo_sleep(unsigned long millisecond);

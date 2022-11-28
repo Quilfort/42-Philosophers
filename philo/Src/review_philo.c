@@ -6,7 +6,7 @@
 /*   By: qfrederi <qfrederi@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/24 13:06:54 by qfrederi      #+#    #+#                 */
-/*   Updated: 2022/11/24 14:29:52 by qfrederi      ########   odam.nl         */
+/*   Updated: 2022/11/28 11:11:41 by qfrederi      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,18 @@ static int	is_philo_death(t_vars *vars)
 
 	i = 0;
 	current = time_of_day();
-
+	while (i < vars->number_of_philosphers)
+	{
+		diff = current - vars->philo[i].last_meal;
+		if (diff > vars->time_to_die)
+		{
+			vars->active = false;
+			print_message(vars, &vars->philo[i], "died");
+			return (1);
+		}
+		i++;
+	}
+	return (0);
 }
 
 void	review_preformance(t_vars *vars)
@@ -46,6 +57,9 @@ void	review_preformance(t_vars *vars)
 	{
 		if (is_philo_served(vars) == 1)
 			break ;
+		if (is_philo_death(vars) == 1)
+			break ;
+		usleep(10);
 	}
 	usleep(10);
 }
