@@ -6,7 +6,7 @@
 /*   By: qfrederi <qfrederi@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/30 09:04:38 by qfrederi      #+#    #+#                 */
-/*   Updated: 2022/11/30 12:07:56 by qfrederi      ########   odam.nl         */
+/*   Updated: 2022/11/30 13:35:48 by qfrederi      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,10 @@ bool	create_philo(t_vars *vars)
 	if (philo_mutex_init(vars, &vars->lock_data) == false)
 		return (clean_mutex(vars, i - 1));
 	if (philo_mutex_init(vars, &vars->lock_print) == false)
+	{
+		pthread_mutex_destroy(&vars->lock_data);
 		return (clean_mutex(vars, i - 1));
+	}
 	place_forks(vars);
 	return (true);
 }

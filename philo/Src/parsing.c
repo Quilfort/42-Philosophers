@@ -6,7 +6,7 @@
 /*   By: qfrederi <qfrederi@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/23 11:39:51 by qfrederi      #+#    #+#                 */
-/*   Updated: 2022/11/30 12:06:32 by qfrederi      ########   odam.nl         */
+/*   Updated: 2022/11/30 13:32:58 by qfrederi      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ bool	check_arguments(int argc, char *argv[])
 				k++;
 			else
 			{
-				printf("Numeric error\n");
+				printf("Numeric error or number lower than 0\n");
 				return (false);
 			}
 		}
