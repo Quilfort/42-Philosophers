@@ -6,13 +6,13 @@
 /*   By: qfrederi <qfrederi@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/24 08:42:19 by qfrederi      #+#    #+#                 */
-/*   Updated: 2022/11/30 10:09:51 by qfrederi      ########   odam.nl         */
+/*   Updated: 2022/11/30 12:10:40 by qfrederi      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-int	philo_mutex_init(t_vars *vars, pthread_mutex_t *mutex)
+bool	philo_mutex_init(t_vars *vars, pthread_mutex_t *mutex)
 {
 	if (!mutex)
 		return (false);
@@ -22,16 +22,6 @@ int	philo_mutex_init(t_vars *vars, pthread_mutex_t *mutex)
 		return (false);
 	}
 	return (true);
-}
-
-void	philo_mutex_lock(t_vars *vars, pthread_mutex_t *mutex)
-{
-	if (!mutex)
-		return ;
-	if (pthread_mutex_lock(mutex) != 0)
-	{
-		error_message(vars, "Incapable to lock Mutex");
-	}
 }
 
 void	philo_pthread_join(pthread_t thread)

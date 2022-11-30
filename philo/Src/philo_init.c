@@ -6,7 +6,7 @@
 /*   By: qfrederi <qfrederi@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/30 09:04:38 by qfrederi      #+#    #+#                 */
-/*   Updated: 2022/11/30 10:17:56 by qfrederi      ########   odam.nl         */
+/*   Updated: 2022/11/30 12:07:56 by qfrederi      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int	clean_mutex(t_vars *vars, int i)
 	return (false);
 }
 
-static int	init_philo(t_vars *vars)
+static bool	init_philo(t_vars *vars)
 {
 	int	i;
 
@@ -59,7 +59,7 @@ static int	init_philo(t_vars *vars)
 	return (true);
 }
 
-int	create_philo(t_vars *vars)
+bool	create_philo(t_vars *vars)
 {
 	int	i;
 

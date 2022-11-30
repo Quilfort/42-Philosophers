@@ -6,13 +6,13 @@
 /*   By: qfrederi <qfrederi@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/23 11:39:51 by qfrederi      #+#    #+#                 */
-/*   Updated: 2022/11/30 09:05:01 by qfrederi      ########   odam.nl         */
+/*   Updated: 2022/11/30 12:06:32 by qfrederi      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-int	parse_arguments(int argc, char *argv[], t_vars *vars)
+bool	parse_arguments(int argc, char *argv[], t_vars *vars)
 {
 	vars->number_of_philosphers = ft_atoi_long(argv[1]);
 	if (vars->number_of_philosphers == 0)
@@ -29,7 +29,7 @@ int	parse_arguments(int argc, char *argv[], t_vars *vars)
 	return (true);
 }
 
-static int	max_min_int(char *number)
+static bool	max_min_int(char *number)
 {
 	if (ft_atoi_long(number) > INT_MAX)
 	{
@@ -39,7 +39,7 @@ static int	max_min_int(char *number)
 	return (true);
 }
 
-static int	argc_count(int argc)
+static bool	argc_count(int argc)
 {
 	if (argc < 5 || argc > 6)
 	{
@@ -49,7 +49,7 @@ static int	argc_count(int argc)
 	return (true);
 }
 
-int	check_arguments(int argc, char *argv[])
+bool	check_arguments(int argc, char *argv[])
 {
 	int	i;
 	int	k;

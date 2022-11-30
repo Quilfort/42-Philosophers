@@ -6,7 +6,7 @@
 /*   By: qfrederi <qfrederi@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/22 08:53:04 by qfrederi      #+#    #+#                 */
-/*   Updated: 2022/11/30 10:10:11 by qfrederi      ########   odam.nl         */
+/*   Updated: 2022/11/30 12:13:00 by qfrederi      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,16 +54,16 @@ typedef struct s_philo_data
 }	t_philo_data;
 
 	// parsing.c
-int				check_arguments(int argc, char *argv[]);
-int				parse_arguments(int argc, char *argv[], t_vars *vars);
+bool			check_arguments(int argc, char *argv[]);
+bool			parse_arguments(int argc, char *argv[], t_vars *vars);
 
 	//philo_init.c
-int				create_philo(t_vars *vars);
+bool			create_philo(t_vars *vars);
 void			place_forks(t_vars *vars);
 int				clean_mutex(t_vars *vars, int i);
 
 	//use_threads
-int				create_threads(t_vars *vars);
+bool			create_threads(t_vars *vars);
 int				wait_join_threads(t_vars *vars);
 void			clean_threads(t_vars *vars);
 
@@ -85,7 +85,7 @@ int				error_message(t_vars *vars, char *message);
 void			print_message(t_vars *vars, t_philo *philo, char *string);
 
 	//pthread_protect
-int				philo_mutex_init(t_vars *vars, pthread_mutex_t *mutex);
+bool			philo_mutex_init(t_vars *vars, pthread_mutex_t *mutex);
 void			philo_pthread_join(pthread_t thread);
 
 #endif

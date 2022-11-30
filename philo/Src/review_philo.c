@@ -6,13 +6,13 @@
 /*   By: qfrederi <qfrederi@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/24 13:06:54 by qfrederi      #+#    #+#                 */
-/*   Updated: 2022/11/30 11:05:38 by qfrederi      ########   odam.nl         */
+/*   Updated: 2022/11/30 12:12:22 by qfrederi      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-static int	is_philo_served(t_vars *vars)
+static bool	is_philo_served(t_vars *vars)
 {
 	int	i;
 
@@ -34,7 +34,7 @@ static int	is_philo_served(t_vars *vars)
 	return (false);
 }
 
-static int	is_philo_death(t_vars *vars)
+static bool	is_philo_death(t_vars *vars)
 {
 	int		i;
 	long	diff;

@@ -6,13 +6,13 @@
 /*   By: qfrederi <qfrederi@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/24 09:11:30 by qfrederi      #+#    #+#                 */
-/*   Updated: 2022/11/30 09:57:15 by qfrederi      ########   odam.nl         */
+/*   Updated: 2022/11/30 12:14:10 by qfrederi      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-int	create_threads(t_vars *vars)
+bool	create_threads(t_vars *vars)
 {
 	int				i;
 	t_philo_data	*arg;
