@@ -6,7 +6,7 @@
 /*   By: qfrederi <qfrederi@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/22 08:58:06 by qfrederi      #+#    #+#                 */
-/*   Updated: 2022/11/28 12:35:32 by qfrederi      ########   odam.nl         */
+/*   Updated: 2022/11/30 09:01:08 by qfrederi      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,12 @@ int	main(int argc, char *argv[])
 	t_vars	*vars;
 
 	if (check_arguments(argc, argv) == false)
-		return (0);
-	vars = (t_vars *)malloc(sizeof(t_vars));
+		return (1);
+	vars = ft_calloc(1, sizeof(t_vars));
 	if (!vars)
-		return (0);
-	//vars = NULL;
+		return (1);
 	if (parse_arguments(argc, argv, vars) == false)
-		return (0);
+		return (1);
 	vars->active = true;
 	vars->philo = NULL;
 	init_philo(vars);

@@ -6,7 +6,7 @@
 /*   By: qfrederi <qfrederi@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/23 08:51:42 by qfrederi      #+#    #+#                 */
-/*   Updated: 2022/11/28 13:43:19 by qfrederi      ########   odam.nl         */
+/*   Updated: 2022/11/30 08:54:28 by qfrederi      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,4 +63,21 @@ size_t	ft_strlen(char *string)
 	while (string[i] != '\0')
 		i++;
 	return (i);
+}
+
+void	*ft_calloc(size_t count, size_t size)
+{
+	void	*output;
+	size_t	i;
+
+	i = 0;
+	output = malloc(count * size);
+	if (!output)
+		return (NULL);
+	while (i < (count * size))
+	{
+		((char *)output)[i] = '\0';
+		i++;
+	}
+	return (output);
 }

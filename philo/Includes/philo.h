@@ -6,7 +6,7 @@
 /*   By: qfrederi <qfrederi@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/22 08:53:04 by qfrederi      #+#    #+#                 */
-/*   Updated: 2022/11/28 13:42:39 by qfrederi      ########   odam.nl         */
+/*   Updated: 2022/11/30 08:55:48 by qfrederi      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,8 @@ typedef struct s_vars
 	int				time_to_sleep;
 	int				amount_of_servings;
 	pthread_mutex_t	*mutex;
+	pthread_mutex_t	lock_data;
+	pthread_mutex_t	lock_print;
 	t_philo			*philo;
 }	t_vars;
 
@@ -61,6 +63,7 @@ long			ft_atoi_long(const char *str);
 unsigned long	time_of_day(void);
 size_t			ft_strlen(char *string);
 void			philo_sleep(unsigned long millisecond);
+void			*ft_calloc(size_t count, size_t size);
 
 	//philosopher
 void			*place_philo(t_vars *vars);
