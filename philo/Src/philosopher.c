@@ -6,7 +6,7 @@
 /*   By: qfrederi <qfrederi@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/24 08:42:29 by qfrederi      #+#    #+#                 */
-/*   Updated: 2022/11/30 10:14:43 by qfrederi      ########   odam.nl         */
+/*   Updated: 2022/11/30 10:22:31 by qfrederi      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,7 @@ static void	sleeping(t_vars *vars, t_philo *philo)
 	if (vars->active == false)
 		return ;
 	print_message(vars, philo, "is sleeping");
+	philo_sleep(vars->time_to_sleep);
 }
 
 void	*add_philo_to_routine(void *arg)
