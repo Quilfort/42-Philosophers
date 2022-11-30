@@ -6,27 +6,11 @@
 /*   By: qfrederi <qfrederi@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/24 08:42:29 by qfrederi      #+#    #+#                 */
-/*   Updated: 2022/11/28 11:11:33 by qfrederi      ########   odam.nl         */
+/*   Updated: 2022/11/30 09:15:56 by qfrederi      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
-
-void	*place_philo(t_vars *vars)
-{
-	int	i;
-
-	i = 0;
-	vars->philo[i].left_fork = &vars->mutex[vars->number_of_philosphers - 1];
-	while (i < vars->number_of_philosphers)
-	{
-		vars->philo[i].right_fork = &vars->mutex[i];
-		if (i)
-			vars->philo[i].left_fork = &vars->mutex[i - 1];
-		i++;
-	}
-	return (0);
-}
 
 static void	eating(t_vars *vars, t_philo *philo)
 {

@@ -4,6 +4,7 @@ FLAGS = -Wall -Wextra -Werror -g -pthread
 INC = -I ./Includes
 SRC =	./Src/main.c \
 		./Src/parsing.c \
+		./Src/philo.init \
 		./Src/philo_utils.c \
 		./Src/philosopher.c \
 		./Src/print_to_term.c \

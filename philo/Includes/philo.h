@@ -6,7 +6,7 @@
 /*   By: qfrederi <qfrederi@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/22 08:53:04 by qfrederi      #+#    #+#                 */
-/*   Updated: 2022/11/30 08:55:48 by qfrederi      ########   odam.nl         */
+/*   Updated: 2022/11/30 09:36:05 by qfrederi      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,22 @@ typedef struct s_philo_data
 	// parsing.c
 int				check_arguments(int argc, char *argv[]);
 int				parse_arguments(int argc, char *argv[], t_vars *vars);
-void			init_philo(t_vars *vars);
+
+	//philo_init.c
+int				create_philo(t_vars *vars);
+void			place_forks(t_vars *vars);
+int				clean_mutex(t_vars *vars, int i);
+
+	//use_threads
+void			create_threads(t_vars *vars);
+void			wait_join_threads(t_vars *vars);
+void			clean_threads(t_vars *vars);
+
+	//philosopher
+void			*add_philo_to_thread(void *arg);
+
+	//review_philo.c
+void			review_preformance(t_vars *vars);
 
 	// philo_utils
 long			ft_atoi_long(const char *str);
@@ -65,27 +80,14 @@ size_t			ft_strlen(char *string);
 void			philo_sleep(unsigned long millisecond);
 void			*ft_calloc(size_t count, size_t size);
 
-	//philosopher
-void			*place_philo(t_vars *vars);
-void			*add_philo_to_thread(void *arg);
-
 	//print_to_term
 int				error_message(t_vars *vars, char *message);
 void			print_message(t_vars *vars, t_philo *philo, char *string);
 
 	//pthread_protect
-void			philo_mutex_init(t_vars *vars, pthread_mutex_t *mutex);
+int				philo_mutex_init(t_vars *vars, pthread_mutex_t *mutex);
 void			philo_mutex_lock(t_vars *vars, pthread_mutex_t *mutex);
 void			philo_mutex_unlock(t_vars *vars, pthread_mutex_t *mutex);
 void			philo_pthread_join(pthread_t thread);
-void			philo_mutex_destroy(pthread_mutex_t *mutex);
-
-	//review_philo.c
-void			review_preformance(t_vars *vars);
-
-	//use_threads
-void			create_threads(t_vars *vars);
-void			wait_join_threads(t_vars *vars);
-void			clean_threads(t_vars *vars);
 
 #endif

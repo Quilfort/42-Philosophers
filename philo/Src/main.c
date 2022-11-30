@@ -6,7 +6,7 @@
 /*   By: qfrederi <qfrederi@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/22 08:58:06 by qfrederi      #+#    #+#                 */
-/*   Updated: 2022/11/30 09:01:08 by qfrederi      ########   odam.nl         */
+/*   Updated: 2022/11/30 09:21:42 by qfrederi      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ int	main(int argc, char *argv[])
 	vars->active = true;
 	vars->philo = NULL;
 	init_philo(vars);
-	place_philo(vars);
 	create_threads(vars);
 	review_preformance(vars);
 	wait_join_threads(vars);
