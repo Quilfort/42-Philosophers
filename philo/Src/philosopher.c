@@ -6,7 +6,7 @@
 /*   By: qfrederi <qfrederi@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/24 08:42:29 by qfrederi      #+#    #+#                 */
-/*   Updated: 2022/11/30 10:22:31 by qfrederi      ########   odam.nl         */
+/*   Updated: 2022/11/30 12:37:27 by qfrederi      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,18 +17,18 @@ static void	use_forks(t_vars *vars, t_philo *philo)
 	if (philo->id % 2)
 	{
 		pthread_mutex_lock((pthread_mutex_t *)philo->right_fork);
-		print_message(vars, philo, "has taken a Right fork");
+		print_message(vars, philo, "has taken a fork");
 		if (vars->number_of_philosphers == 1)
 			return ;
 		pthread_mutex_lock((pthread_mutex_t *)philo->left_fork);
-		print_message(vars, philo, "has taken a Left fork");
+		print_message(vars, philo, "has taken a fork");
 	}
 	else
 	{
 		pthread_mutex_lock((pthread_mutex_t *)philo->left_fork);
-		print_message(vars, philo, "has taken a Left fork");
+		print_message(vars, philo, "has taken a fork");
 		pthread_mutex_lock((pthread_mutex_t *)philo->right_fork);
-		print_message(vars, philo, "has taken a Right fork");
+		print_message(vars, philo, "has taken a fork");
 	}
 }
 
