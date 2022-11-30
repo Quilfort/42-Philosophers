@@ -6,7 +6,7 @@
 /*   By: qfrederi <qfrederi@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/30 09:04:38 by qfrederi      #+#    #+#                 */
-/*   Updated: 2022/11/30 09:41:18 by qfrederi      ########   odam.nl         */
+/*   Updated: 2022/11/30 10:17:56 by qfrederi      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ static int	init_philo(t_vars *vars)
 	i = 0;
 	vars->philo = ft_calloc(vars->number_of_philosphers, sizeof(t_philo));
 	if (!vars->philo)
-		return ;
+		return (false);
 	vars->mutex = ft_calloc(vars->number_of_philosphers, \
 		sizeof(pthread_mutex_t));
 	if (!vars->mutex)

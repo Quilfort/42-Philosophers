@@ -6,7 +6,7 @@
 /*   By: qfrederi <qfrederi@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/22 08:53:04 by qfrederi      #+#    #+#                 */
-/*   Updated: 2022/11/30 09:36:05 by qfrederi      ########   odam.nl         */
+/*   Updated: 2022/11/30 10:10:11 by qfrederi      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,12 +63,12 @@ void			place_forks(t_vars *vars);
 int				clean_mutex(t_vars *vars, int i);
 
 	//use_threads
-void			create_threads(t_vars *vars);
-void			wait_join_threads(t_vars *vars);
+int				create_threads(t_vars *vars);
+int				wait_join_threads(t_vars *vars);
 void			clean_threads(t_vars *vars);
 
 	//philosopher
-void			*add_philo_to_thread(void *arg);
+void			*add_philo_to_routine(void *arg);
 
 	//review_philo.c
 void			review_preformance(t_vars *vars);
@@ -86,8 +86,6 @@ void			print_message(t_vars *vars, t_philo *philo, char *string);
 
 	//pthread_protect
 int				philo_mutex_init(t_vars *vars, pthread_mutex_t *mutex);
-void			philo_mutex_lock(t_vars *vars, pthread_mutex_t *mutex);
-void			philo_mutex_unlock(t_vars *vars, pthread_mutex_t *mutex);
 void			philo_pthread_join(pthread_t thread);
 
 #endif

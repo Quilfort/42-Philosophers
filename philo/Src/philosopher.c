@@ -6,38 +6,52 @@
 /*   By: qfrederi <qfrederi@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/24 08:42:29 by qfrederi      #+#    #+#                 */
-/*   Updated: 2022/11/30 09:15:56 by qfrederi      ########   odam.nl         */
+/*   Updated: 2022/11/30 10:14:43 by qfrederi      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-static void	eating(t_vars *vars, t_philo *philo)
+static void	use_forks(t_vars *vars, t_philo *philo)
 {
-	if (vars->active == false)
-		return ;
 	if (philo->id % 2)
 	{
-		philo_mutex_lock(vars, (pthread_mutex_t *)philo->right_fork);
+		pthread_mutex_lock((pthread_mutex_t *)philo->right_fork);
 		print_message(vars, philo, "has taken a Right fork");
 		if (vars->number_of_philosphers == 1)
 			return ;
-		philo_mutex_lock(vars, (pthread_mutex_t *)philo->left_fork);
+		pthread_mutex_lock((pthread_mutex_t *)philo->left_fork);
 		print_message(vars, philo, "has taken a Left fork");
 	}
 	else
 	{
-		philo_mutex_lock(vars, (pthread_mutex_t *)philo->left_fork);
+		pthread_mutex_lock((pthread_mutex_t *)philo->left_fork);
 		print_message(vars, philo, "has taken a Left fork");
-		philo_mutex_lock(vars, (pthread_mutex_t *)philo->right_fork);
+		pthread_mutex_lock((pthread_mutex_t *)philo->right_fork);
 		print_message(vars, philo, "has taken a Right fork");
 	}
+}
+
+static void	eating(t_vars *vars, t_philo *philo)
+{
+	if (vars->active == false)
+		return ;
+	use_forks(vars, philo);
+	if (vars->number_of_philosphers == 1)
+		return ;
 	print_message(vars, philo, "is eating");
+	pthread_mutex_lock(&vars->lock_data);
 	philo->last_meal = time_of_day();
+	pthread_mutex_unlock(&vars->lock_data);
 	philo_sleep(vars->time_to_eat);
-	philo->servings += 1;
-	philo_mutex_unlock(vars, (pthread_mutex_t *)philo->right_fork);
-	philo_mutex_unlock(vars, (pthread_mutex_t *)philo->left_fork);
+	if (vars->amount_of_servings >= 0)
+	{
+		pthread_mutex_lock(&vars->lock_data);
+		philo->servings += 1;
+		pthread_mutex_unlock(&vars->lock_data);
+	}
+	pthread_mutex_unlock((pthread_mutex_t *)philo->right_fork);
+	pthread_mutex_unlock((pthread_mutex_t *)philo->left_fork);
 }
 
 static void	thinking(t_vars *vars, t_philo *philo)
@@ -54,14 +68,14 @@ static void	sleeping(t_vars *vars, t_philo *philo)
 	print_message(vars, philo, "is sleeping");
 }
 
-void	*add_philo_to_thread(void *arg)
+void	*add_philo_to_routine(void *arg)
 {
 	t_vars	*vars;
 	t_philo	*philo;
 
 	vars = ((t_philo_data *)arg)->vars;
 	philo = ((t_philo_data *)arg)->philo;
-	free((t_philo_data *)arg);
+	free(arg);
 	while (vars->active == true)
 	{
 		eating(vars, philo);
